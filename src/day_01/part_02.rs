@@ -1,10 +1,5 @@
+use super::{to_depth_iter, EXAMPLE_INPUT, PUZZLE_INPUT};
 use itertools::Itertools;
-
-fn to_depth_iter(input: &'static str) -> impl Iterator<Item = u64> {
-    input
-        .split_whitespace()
-        .map(|s| s.parse::<u64>().expect("must be valid number"))
-}
 
 fn count_window_increases(depths: impl Iterator<Item = u64>) -> usize {
     depths
@@ -15,30 +10,9 @@ fn count_window_increases(depths: impl Iterator<Item = u64>) -> usize {
         .sum()
 }
 
-fn main() {
-    let puzzle_input = include_str!("../resources/day-01-part-01-input.txt");
-
-    let depths = to_depth_iter(puzzle_input);
-    let total_increases = count_window_increases(depths);
-
-    println!("{}", total_increases);
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
-
-    const EXAMPLE_INPUT: &str = "
-199
-200
-208
-210
-200
-207
-240
-269
-260
-263";
 
     #[test]
     fn example() {
@@ -46,5 +20,13 @@ mod tests {
         let total_increases = count_window_increases(depths);
 
         assert_eq!(total_increases, 5);
+    }
+
+    #[test]
+    fn puzzle() {
+        let depths = to_depth_iter(PUZZLE_INPUT);
+        let total_increases = count_window_increases(depths);
+
+        assert_eq!(total_increases, 1575);
     }
 }
