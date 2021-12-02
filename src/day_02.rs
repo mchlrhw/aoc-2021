@@ -43,5 +43,5 @@ impl FromStr for Command {
 fn to_command_iter(input: &'static str) -> impl Iterator<Item = Command> {
     input
         .lines()
-        .map(|s| s.parse::<Command>().expect("must be valid number"))
+        .map(|s| s.parse::<Command>().expect("must be valid command"))
 }
