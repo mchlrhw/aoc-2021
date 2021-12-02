@@ -39,6 +39,6 @@ mod tests {
         let (pos, depth) = apply_commands((0, 0), commands);
         let coords_mul = pos * depth;
 
-        assert_eq!(coords_mul, 1936494);
+        assert_eq!(coords_mul, 1_936_494);
     }
 }
