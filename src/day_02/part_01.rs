@@ -1,0 +1,44 @@
+use super::{
+    to_command_iter,
+    Command::{self, *},
+    EXAMPLE_INPUT, PUZZLE_INPUT,
+};
+
+fn apply_commands(coords: (i64, i64), commands: impl Iterator<Item = Command>) -> (i64, i64) {
+    let (mut pos, mut depth) = coords;
+
+    for command in commands {
+        match command {
+            Forward(amount) => pos += amount,
+            Down(amount) => depth += amount,
+            Up(amount) => depth -= amount,
+        }
+    }
+
+    (pos, depth)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn example() {
+        let commands = to_command_iter(EXAMPLE_INPUT);
+
+        let (pos, depth) = apply_commands((0, 0), commands);
+        let coords_mul = pos * depth;
+
+        assert_eq!(coords_mul, 150);
+    }
+
+    #[test]
+    fn puzzle() {
+        let commands = to_command_iter(PUZZLE_INPUT);
+
+        let (pos, depth) = apply_commands((0, 0), commands);
+        let coords_mul = pos * depth;
+
+        assert_eq!(coords_mul, 1936494);
+    }
+}
