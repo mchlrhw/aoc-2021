@@ -20,7 +20,7 @@ impl FromStr for Command {
     type Err = anyhow::Error;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        use Command::*;
+        use Command::{Down, Forward, Up};
 
         let command = match s.split_once(" ") {
             Some((command, amount)) => {

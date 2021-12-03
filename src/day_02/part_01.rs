@@ -1,6 +1,6 @@
 use super::{
     to_command_iter,
-    Command::{self, *},
+    Command::{self, Down, Forward, Up},
     EXAMPLE_INPUT, PUZZLE_INPUT,
 };
 

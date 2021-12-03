@@ -19,12 +19,12 @@ impl Counter {
     }
 
     fn most_common(&self) -> char {
-        if self.zeros > self.ones {
-            '0'
-        } else if self.ones > self.zeros {
-            '1'
-        } else {
-            panic!("there is no most common char");
+        use std::cmp::Ordering::{Equal, Greater, Less};
+
+        match self.zeros.cmp(&self.ones) {
+            Greater => '0',
+            Less => '1',
+            Equal => panic!("there is no most common char"),
         }
     }
 }
@@ -81,7 +81,7 @@ fn flip_bits(s: &str) -> String {
 fn calculate_power_consumption(gamma: &str) -> u64 {
     let epsilon = flip_bits(gamma);
 
-    let gamma_num = u64::from_str_radix(&gamma, 2).unwrap();
+    let gamma_num = u64::from_str_radix(gamma, 2).unwrap();
     let epsilon_num = u64::from_str_radix(&epsilon, 2).unwrap();
 
     gamma_num * epsilon_num
@@ -104,6 +104,6 @@ mod tests {
         let gamma = find_gamma(PUZZLE_INPUT);
         let pc = calculate_power_consumption(&gamma);
 
-        assert_eq!(pc, 2498354);
+        assert_eq!(pc, 2_498_354);
     }
 }
