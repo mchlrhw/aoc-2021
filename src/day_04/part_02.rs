@@ -15,12 +15,10 @@ mod tests {
         'bingo: for number in numbers {
             if boards.0.len() > 1 {
                 boards.mark_all_and_remove_winners(number);
-            } else {
-                if let Some(board) = boards.mark_all(number) {
-                    losing_board = Some(board);
-                    losing_number = Some(u64::from(number));
-                    break 'bingo;
-                };
+            } else if let Some(board) = boards.mark_all(number) {
+                losing_board = Some(board);
+                losing_number = Some(u64::from(number));
+                break 'bingo;
             }
         }
 
@@ -47,12 +45,10 @@ mod tests {
         'bingo: for number in numbers {
             if boards.0.len() > 1 {
                 boards.mark_all_and_remove_winners(number);
-            } else {
-                if let Some(board) = boards.mark_all(number) {
-                    losing_board = Some(board);
-                    losing_number = Some(u64::from(number));
-                    break 'bingo;
-                };
+            } else if let Some(board) = boards.mark_all(number) {
+                losing_board = Some(board);
+                losing_number = Some(u64::from(number));
+                break 'bingo;
             }
         }
 
