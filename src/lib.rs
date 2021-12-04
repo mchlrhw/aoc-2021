@@ -4,3 +4,5 @@ mod day_01;
 mod day_02;
 #[cfg(test)]
 mod day_03;
+#[cfg(test)]
+mod day_04;
