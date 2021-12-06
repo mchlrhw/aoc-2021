@@ -6,3 +6,5 @@ mod day_02;
 mod day_03;
 #[cfg(test)]
 mod day_04;
+#[cfg(test)]
+mod day_06;
