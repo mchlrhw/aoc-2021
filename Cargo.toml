@@ -7,3 +7,6 @@ edition = "2021"
 anyhow = "1.0.51"
 itertools = "0.10.1"
 nom = "7.1.0"
+
+[dev-dependencies]
+test-case = "1.2.1"

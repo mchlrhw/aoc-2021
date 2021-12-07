@@ -1,12 +1,4 @@
-use super::{EXAMPLE_INPUT, PUZZLE_INPUT};
-
-fn parse_positions(input: &str) -> Vec<i64> {
-    input
-        .trim()
-        .split(',')
-        .map(|s| s.parse().expect("must be a i64"))
-        .collect()
-}
+use super::{parse_positions, EXAMPLE_INPUT, PUZZLE_INPUT};
 
 #[cfg(test)]
 mod tests {
